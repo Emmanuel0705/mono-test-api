@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+    mongo_db:
+        image: "mongo"
+        container_name: mongo_db
+        ports:
+            - "27017:27017"
+        volumes:
+            - data:/data/db
+        env_file:
+            - ./src/mongodb.env
+    app:
+        build: ./
+        container_name: mono_app
+        ports:
+            - "4000:4000"
+        volumes:
+            - ./:/app
+            - /app/node_modules
+        env_file:
+            - ./src/.env
+        restart: "on-failure"
+        command: ["npm", "run", "dev"]
+        depends_on:
+            - mongo_db
+volumes:
+    data:
