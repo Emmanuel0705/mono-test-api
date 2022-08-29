@@ -27,7 +27,7 @@ class Mono {
 
     public async getTransactions(id: string) {
         const res = await axios.get(
-            `${this.BASE_URL}/accounts/${id}/transactions`,
+            `${this.BASE_URL}/accounts/${id}/transactions?limit=6`,
 
             {
                 headers: { "mono-sec-key": this.SEC_KEY },

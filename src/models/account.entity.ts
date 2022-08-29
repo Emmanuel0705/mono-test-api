@@ -12,7 +12,7 @@ const accountSchema = new Schema<AccountType>({
     user: { type: Schema.Types.ObjectId, ref: "user" },
     accountId: String,
     balance: Number,
-    bankName: String,
+    bankName: { type: String, unique: true },
     bankLogo: String,
 });
 

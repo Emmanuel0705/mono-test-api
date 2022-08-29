@@ -20,7 +20,10 @@ class UserController {
     public async signUp(req: Request, res: Response) {
         const { firstName, lastName, email, password } = req.body;
 
-        const user = await User.create({
+        let user = await User.findOne({ email });
+        if (user) throw new AppError("user already exist", 400);
+
+        user = await User.create({
             firstName,
             lastName,
             email,

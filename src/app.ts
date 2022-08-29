@@ -44,12 +44,7 @@ app.use(errorHandler);
 
 const port = process.env.PORT || 3000;
 
-const DATABASE_URI = process.env.DATABASE_URI?.replace(
-    "USERNAME",
-    process.env.MONGODB_USERNAME as string
-)
-    .replace("PASSWORD", process.env.MONGODB_PASSWORD as string)
-    .replace("DB_NAME", process.env.MONGODB_DATABASE as string);
+const DATABASE_URI = process.env.DATABASE_URI;
 
 console.log(DATABASE_URI);
 
@@ -66,3 +61,5 @@ connect(DATABASE_URI as string, (err) => {
         );
     }
 });
+
+// oluwatobi_1
