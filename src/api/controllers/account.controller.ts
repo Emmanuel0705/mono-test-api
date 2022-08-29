@@ -16,6 +16,12 @@ class AccountController {
         const { _id, institution, balance } = account;
         const logo = getBankkLogo(institution.bankCode);
 
+        if (await Account.findOne({ bankName: institution.name })) {
+            return res.status(200).json({
+                status: "SUCCESS",
+            });
+        }
+
         const data = await Account.create({
             user: userId,
             accountId: _id,

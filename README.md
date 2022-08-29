@@ -10,7 +10,7 @@
 
 ---
 
-2. Update db.env content accordingly
+2. Update sample.env content
 
 ---
 
@@ -24,7 +24,3 @@
     ```sh
     docker logs mono-app -f
     ```
-
-## Test the endpoint
-
-## URL Sample
